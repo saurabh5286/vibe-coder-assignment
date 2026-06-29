@@ -15,28 +15,37 @@ export function PlatformFilter({
   onSearchChange,
 }: PlatformFilterProps) {
   return (
-    <div className="mb-4">
-      <div className="flex gap-2 justify-center mb-3">
-        {PLATFORMS.map((p) => (
-          <button
-            key={p}
-            type="button"
-            onClick={() => onChange(p)}
-            className={`px-4 py-2 border rounded ${
-              selected === p ? "bg-gray-800 text-white" : "bg-white text-gray-800"
-            }`}
-          >
-            {getPlatformLabel(p)}
-          </button>
-        ))}
+    <div className="rounded-4xl border border-slate-200 bg-white/90 p-4 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.5)] sm:p-5">
+      <div className="flex flex-wrap gap-2">
+        {PLATFORMS.map((p) => {
+          const isActive = selected === p;
+          return (
+            <button
+              key={p}
+              type="button"
+              onClick={() => onChange(p)}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                isActive
+                  ? "bg-slate-900 text-white shadow-lg"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              }`}
+              aria-pressed={isActive}
+            >
+              {getPlatformLabel(p)}
+            </button>
+          );
+        })}
       </div>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => onSearchChange(e.target.value)}
-        placeholder="Search by username or name..."
-        className="w-full max-w-md border px-3 py-2 rounded"
-      />
+      <label className="mt-4 flex flex-col gap-2 text-sm text-slate-600">
+        <span className="font-medium">Search creators</span>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => onSearchChange(e.target.value)}
+          placeholder="Search by username or name..."
+          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-violet-400 focus:bg-white"
+        />
+      </label>
     </div>
   );
 }

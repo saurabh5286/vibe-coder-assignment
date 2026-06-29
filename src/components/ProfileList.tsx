@@ -15,8 +15,12 @@ export function ProfileList({
   onProfileClick,
 }: ProfileListProps) {
   return (
-    <div className="flex flex-col items-center">
-      {profiles.length === 0 && <p>No profiles found</p>}
+    <div className="space-y-3">
+      {profiles.length === 0 && (
+        <div className="rounded-3xl border border-dashed border-slate-300 bg-white/70 p-8 text-center text-sm text-slate-500">
+          No profiles match that search yet. Try another keyword.
+        </div>
+      )}
       {profiles.map((profile) => (
         <ProfileCard
           key={profile.user_id}

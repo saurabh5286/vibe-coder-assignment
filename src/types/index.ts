@@ -38,6 +38,10 @@ export interface FullUserProfile extends UserProfileSummary {
   age_group?: string;
 }
 
+export interface ListedProfile extends UserProfileSummary {
+  platform: Platform;
+}
+
 export interface ProfileDetailResponse {
   cached?: boolean;
   data: {
