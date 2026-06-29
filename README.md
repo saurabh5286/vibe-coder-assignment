@@ -17,7 +17,8 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173 to view the app.
+Open https://vibe-coder-assignment-blond.vercel.app/ to view the app.
+My Portfolio : https://saurabhhardel.me/
 
 ## Available scripts
 
